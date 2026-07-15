@@ -1,0 +1,12 @@
+package com.Market.Data.Management.System.service;
+
+import com.Market.Data.Management.System.dto.ConsolidatedMarketDataDto;
+import org.springframework.stereotype.Service;
+
+@Service
+public interface ConsolidatedMarketDataService {
+
+    ConsolidatedMarketDataDto getConsolidatedMarketDataBySymbol(String symbol);
+
+
+}

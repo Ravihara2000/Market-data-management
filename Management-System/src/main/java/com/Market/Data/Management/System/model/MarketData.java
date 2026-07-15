@@ -1,0 +1,31 @@
+package com.Market.Data.Management.System.model;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Entity
+@Table(name = "market_data",
+    uniqueConstraints = @UniqueConstraint(columnNames = {"symbol", "source"},
+            name = "symbol_source_unique"))
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class MarketData extends Market{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String symbol;
+
+    private String source;
+
+    public MarketData(String symbol, String source) {
+        this.symbol = symbol;
+        this.source = source;
+    }
+}
